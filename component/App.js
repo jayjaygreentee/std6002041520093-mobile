@@ -2,16 +2,17 @@
 import React from 'react';
 import { View , Text } from 'react-native';
 
-//vrite component
-class App extends React.Component {
+//write component
+class App extends React.Component{
     render() {
         return (
-
+            //component about react native
             <View>
-                <Text>Rapepan</Text>
+                <Text> RApepan</Text>
             </View>
-        )
+        );
     }
 }
 
+//export
 export default App;
