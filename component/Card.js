@@ -12,8 +12,8 @@ class Card extends Component {
                             style={{width:70, height:70}}
                             source={{uri:'https://images.unsplash.com/photo-1546717137-f348ef0e0e3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80' }} />
                         <View style={{marginTop:10, marginLeft:10}}>
-                            <Text>พรุ่งนี้ค่อย</Text>
-                            <Text>Pop</Text>
+                            <Text>Album Name : พรุ่งนี้ค่อย</Text>
+                            <Text>Photo by Pop</Text>
                         </View>
                     </View>
                 
