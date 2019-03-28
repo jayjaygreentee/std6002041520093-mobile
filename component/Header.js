@@ -18,7 +18,7 @@ const styles = {
     header:{
         padding: 50,
         alignItems: 'center',
-        backgroundcolor: '#FFF5EE'
+        backgroundColor: '#FFDAB9'
 
     },
     text: {
