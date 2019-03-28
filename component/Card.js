@@ -5,7 +5,7 @@ import CardSection from './CardSection';
 class Card extends Component {
     render() {
         return (
-            <View>
+            <View style={{alignItems: 'center',backgroundColor: '#FFFFE0'}}>
                 <CardSection>
                 <Image 
                     style={{width:150, height:150}}
@@ -24,15 +24,34 @@ class Card extends Component {
 
 
                 <CardSection>
-                    <Button 
+                    <View style={styles.CardSection}>
+                        <View style={styles.Button}>
+                    
+                            <Button 
 
-                        title="Buy"
-                    />
+                             title="Buy"
+                            />
+                    
+                        </View>
+                    </View>       
                 </CardSection>
                 
             </View>
 
         );
     }
+}
+const styles = {
+    CardSection:{
+        backgroundColor: '#CD853F', 
+        justifyContent: 'center'
+
+    },
+    Button: {
+        width:300, 
+        height:10, 
+        backgroundColor: '#FFD700'
+    }
+
 }
 export default Card;
