@@ -8,7 +8,8 @@ class App extends React.Component{
         return (
             //component about react native
             <View>
-                <Text> RApepan</Text>
+                <Text> RapepanNakpan</Text>
+                <Text> 6002041520093</Text>
             </View>
         );
     }
