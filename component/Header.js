@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <View style={styles.header}>
-                 <Text>{this.props.title}</Text>
+                 <Text style={styles.text}>{this.props.title}</Text>
             </View>
         )
     }
@@ -16,8 +16,16 @@ class Header extends Component {
 //style
 const styles = {
     header:{
-        padding: 5
+        padding: 50,
+        alignItems: 'center',
+        backgroundcolor: '#FFF5EE'
+
+    },
+    text: {
+        fontSize: 50,
+        color: '#FF3366'
     }
+
 }
 
 //export
