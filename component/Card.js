@@ -33,7 +33,7 @@ class Card extends Component {
                     
                             <Button 
 
-                             title="Buy"
+                             title="Buy Now"
                             />
                     
                         </View>
