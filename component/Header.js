@@ -6,10 +6,17 @@ import { View, Text } from 'react-native';
 class Header extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.header}>
                  <Text>{this.props.title}</Text>
             </View>
         )
+    }
+}
+
+//style
+const styles = {
+    header:{
+        padding: 5
     }
 }
 
