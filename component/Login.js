@@ -1,80 +1,66 @@
-//import library
+// import library
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
 // write component
-export default class Login extends React.Component{
+class Login extends Component {
     static navigationOptions = {
-        
-        title: "Login",
-        headerStyle: {
-            backgroundColor: "#1E90FF",
-        },
-        headerTintColor: "white",
-        
-    };
-    
-    constructor(){
+        title: 'Login'
+    }
+    constructor() {
         super()
-        this.state ={
+        this.state = {
             email: '',
             password: ''
-        };
-    }
-
-    async componentDidMount() {
-        try {
-            if (await AsyncStorage.getItem("login_token") !== null) {
-                this.props.navigation.navigate("Me");
-            }
-        } catch (error) {
-            console.error(error);
         }
+        // this.onChangeEmail = this.onChangeEmail.bind(this)
     }
-
-    goLogin() {
-        axios.post("http://128.199.240.120:9999/api/auth/login", {
-            email: this.state.email,
-            password: this.state.password
-        }).then(async function (response) {
-            // alert("Logined !");
-
-            console.log(response.data.data.token);
-            try {
-                await AsyncStorage.setItem("login_token", response.data.data.token);
-            } catch (error) {
-                alert("Save token error !");
-
-                return;
-            }
-
-            this.props.navigation.navigate("Me");
-        }.bind(this))
-        .catch(function (error) {
-            alert("Login fail !");
-            console.log(error);
-        });
+    componentDidMount() {
+        const {navigate} = this.props.navigation;
+        return navigate('Profile')
     }
-    render(){
-        return(
-            <View >
-                    <TextInput
-                        style={{ alignItems: 'center' , height:40, fontSize: 20 }}
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChangeText={(text) => this.setState({ email: text })}
-                    />
-                    <TextInput
-                        secureTextEntry
-                        style={{ height:40, fontSize: 20 }}
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChangeText={(text) => this.setState({ password: text })}
-                    />
-                    <Button title="Login" color = "#1E90FF" onPress={this.goLogin.bind(this)} />
+    onChangeEmail(e) {
+        console.log('onChangeEmail', e)
+        this.setState({ email: e}) 
+    }
+    onChangePassword(e) {
+        this.setState({ password: e})
+    }
+    onPress() {
+        console.log(this.state)
+        const url = 'http://128.199.240.120:9999/api/auth/login'
+        axios.post(url, this.state)
+            .then(response => {
+                console.log('token ', response.data.data.token)
+            })
+    }
+    render() {
+        const {navigate} = this.props.navigation;
+        return navigate('Profile')
+        return (
+            <View>
+                <TextInput
+                    style={{ height: 40, fontWeight: 'bold', fontSize: 20 }}
+                    placeholder="Email"
+                    value={this.state.email}
+                    onChangeText={this.onChangeEmail.bind(this)}
+                />
+                <TextInput
+                    secureTextEntry
+                    style={{ height: 40, fontWeight: 'bold', fontSize: 20 }}
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChangeText={this.onChangePassword.bind(this)}
+                />
+                <Button  
+                    title="Login"
+                    onPress={this.onPress.bind(this)}
+                />
             </View>
         );
     }
 }
+
+// export
+export default Login;
