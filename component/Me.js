@@ -7,7 +7,7 @@ export default class Me extends React.Component {
     static navigationOptions = {
         title: "Profile",
         headerStyle: {
-            backgroundColor: "#8B5927",
+            backgroundColor: "#1E90FF",
         },
         headerTintColor: "white",
     };
@@ -84,12 +84,12 @@ export default class Me extends React.Component {
         return (
             !this.state.loading ? 
             <View style={{ padding: 20 }}>
-                <Text style={{ textAlign: "center", fontSize: 28, color: "#E19B50", marginBottom: 20 }}>Your profile</Text>
+                <Text style={{ textAlign: "center", fontSize: 28, color: "#1E90FF", marginBottom: 20 }}>Your profile</Text>
 
                 <Text style={{ marginBottom: 10, fontSize: 16  }}>Name: {this.state.name}</Text>
                 <Text style={{ marginBottom: 10, fontSize: 16 }}>Email: {this.state.email}</Text>
 
-                <Button title="Logout" color = "#8B5927"onPress={this.logout.bind(this)} />
+                <Button title="Logout" color = "#1E90FF"onPress={this.logout.bind(this)} />
             </View> : 
             <View style={{ padding: 20 }}>
                 <Text style={{ textAlign: "center", fontSize: 18 }}>Loading...</Text>
